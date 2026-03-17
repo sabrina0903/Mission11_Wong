@@ -1,0 +1,86 @@
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container */
+.container {
+  max-width: 1000px;
+}
+
+/* Title */
+h2 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Table */
+.table {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.table th {
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+}
+
+.table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* Zebra rows cleaner */
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f2f2f2;
+}
+
+/* Hover effect */
+.table tbody tr:hover {
+  background-color: #e9ecef;
+  transition: 0.2s;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 8px;
+  padding: 6px 14px;
+}
+
+.btn-primary {
+  background-color: #4f46e5;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #4338ca;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+}
+
+/* Dropdown */
+select {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Pagination area */
+.pagination-controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Page text */
+.pagination-controls span {
+  font-weight: 500;
+}
