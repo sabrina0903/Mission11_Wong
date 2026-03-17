@@ -24,14 +24,14 @@ function BookList() {
         .then(data => setBooks(data))
     }, [])
 
-  // ✅ SORTING
+  // sorting
     const sortedBooks = [...books].sort((a, b) =>
         sortAsc
         ? a.title.localeCompare(b.title)
         : b.title.localeCompare(a.title)
     )
 
-  // ✅ PAGINATION
+  // pagination
     const startIndex = (currentPage - 1) * pageSize
     const selectedBooks = sortedBooks.slice(startIndex, startIndex + pageSize)
     const totalPages = Math.ceil(books.length / pageSize)
@@ -42,7 +42,6 @@ function BookList() {
 
         <div className="d-flex justify-content-between align-items-center mb-3">
             
-            {/* LEFT SIDE */}
             <button
                 className="btn btn-primary"
                 onClick={() => setSortAsc(!sortAsc)}
@@ -50,7 +49,6 @@ function BookList() {
                 Sort by Title ({sortAsc ? "A-Z" : "Z-A"})
             </button>
 
-            {/* RIGHT SIDE */}
             <div>
                 <label>Results per page: </label>
                 <select
