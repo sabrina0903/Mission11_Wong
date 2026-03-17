@@ -63,3 +63,4 @@ C:\Users\sabri\source\repos\Missing11_Wong\backend\Mission11_Wong.API\bin\Debug\
 C:\Users\sabri\source\repos\Missing11_Wong\backend\Mission11_Wong.API\bin\Debug\net10.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\sabri\source\repos\Missing11_Wong\backend\Mission11_Wong.API\bin\Debug\net10.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\sabri\source\repos\Missing11_Wong\backend\Mission11_Wong.API\bin\Debug\net10.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\sabri\source\repos\Missing11_Wong\backend\Mission11_Wong.API\obj\Debug\net10.0\Mission11_Wong.API.sourcelink.json

@@ -66,7 +66,6 @@ function BookList() {
 
         </div>
 
-        {/* ✅ TABLE */}
         <table className="table table-striped">
             <thead>
             <tr>
