@@ -1,13 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
-import BookList from "./BookList"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import BookList from "./BookList";
+import CartPage from "./CartPage";
 
 function App() {
-  return <BookList />
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<BookList />} />
+        <Route path="/cart" element={<CartPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App
-
