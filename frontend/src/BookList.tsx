@@ -24,7 +24,7 @@ function BookList() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/books/all")
+        fetch("https://booklist-sabrina-backend-cpg5heawfcfrasaw.centralus-01.azurewebsites.net/api/books/all")
             .then(res => res.json())
             .then(data => setBooks(data))
     }, [location])

@@ -3,26 +3,40 @@ using Mission11_Wong.API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//  Services
+// Services
 builder.Services.AddControllers();
 
-builder.Services.AddDbContext<BookDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("BookstoreConnection")));
+// ✅ FIXED DB PATH
+var isAzure = Environment.GetEnvironmentVariable("WEBSITE_INSTANCE_ID") != null;
 
-//  CORS MUST be here (before Build)
+var dbPath = isAzure
+    ? "/home/site/wwwroot/Bookstore.sqlite"   // Azure
+    : Path.Combine(Directory.GetCurrentDirectory(), "Bookstore.sqlite"); // Local
+
+builder.Services.AddDbContext<BookDbContext>(options =>
+    options.UseSqlite($"Data Source={dbPath}")
+);
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReact",
-        policy => policy.WithOrigins("http://localhost:3000")
+        policy => policy.AllowAnyOrigin()
                         .AllowAnyHeader()
                         .AllowAnyMethod());
 });
 
 var app = builder.Build();
 
-//  Use CORS AFTER build
+app.UseRouting();
 app.UseCors("AllowReact");
 
 app.MapControllers();
+
+// Ensure DB exists
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<BookDbContext>();
+    db.Database.EnsureCreated();
+}
 
 app.Run();
