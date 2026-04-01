@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const API = "https://booklist-sabrina-backend-cpg5heawfcfrasaw.centralus-01.azurewebsites.net/api/books";
+
 interface Book {
     bookID?: number
     title: string
@@ -33,7 +35,7 @@ function AdminPage() {
     const [editingId, setEditingId] = useState<number | null>(null)
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/books/all")
+        fetch(API + "/all")
             .then(res => res.json())
             .then(data => setBooks(data))
     }, [])
@@ -52,20 +54,20 @@ function AdminPage() {
     let isEditing = editingId !== null
 
     if (isEditing) {
-        await fetch(`http://localhost:5000/api/books/${editingId}`, {
+        await fetch(`${API}/${editingId}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(form)
         })
     } else {
-        await fetch("http://localhost:5000/api/books", {
+        await fetch(API, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(form)
         })
     }
 
-    const res = await fetch("http://localhost:5000/api/books/all")
+    const res = await fetch(API + "/all")
     const data = await res.json()
     setBooks(data)
 
@@ -94,7 +96,7 @@ function AdminPage() {
         const confirmDelete = window.confirm(`Delete "${title}"?`)
         if (!confirmDelete) return
 
-        await fetch(`http://localhost:5000/api/books/${id}`, {
+        await fetch(`${API}/${id}`, {
             method: "DELETE"
         })
 
