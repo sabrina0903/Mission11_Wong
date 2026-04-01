@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mission11_Wong.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d093d51fafbd9a1cd5d9ae59a5a05c80064b6b85")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c3366f5c380d71e2e85c90840d491b79e0a2de9")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mission11_Wong.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mission11_Wong.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -3,13 +3,13 @@ using Mission11_Wong.API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ Services
+//  Services
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<BookDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("BookstoreConnection")));
 
-// ✅ CORS MUST be here (before Build)
+//  CORS MUST be here (before Build)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReact",
@@ -20,7 +20,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// ✅ Use CORS AFTER build
+//  Use CORS AFTER build
 app.UseCors("AllowReact");
 
 app.MapControllers();

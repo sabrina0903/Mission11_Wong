@@ -27,7 +27,7 @@ function BookList() {
         fetch("http://localhost:5000/api/books/all")
             .then(res => res.json())
             .then(data => setBooks(data))
-    }, [])
+    }, [location])
 
     useEffect(() => {
     const savedState = sessionStorage.getItem("bookListState");
@@ -109,7 +109,14 @@ function BookList() {
                 <div className="col-md-9">
 
                     {/*  TOP RIGHT CART BUTTON */}
-                    <div className="d-flex justify-content-end mb-3">
+                    <div className="d-flex justify-content-end mb-3 gap-2">
+                        {/* ADMIN BUTTON */}
+                        <button
+                            className="btn btn-dark"
+                            onClick={() => navigate("/adminbooks")}
+                        >
+                            Admin
+                        </button>
                         <button
                             className="btn btn-outline-dark position-relative"
                             onClick={() => navigate("/cart")}
@@ -172,7 +179,7 @@ function BookList() {
                                     <td>{b.isbn}</td>
                                     <td>{b.category}</td>
                                     <td>{b.pageCount}</td>
-                                    <td>${b.price}</td>
+                                    <td>${b.price.toFixed(2)}</td>
                                     <td>
                                         <button
                                             className="btn btn-success btn-sm px-3"
